@@ -20,7 +20,19 @@ class TestFilterMethods(unittest.TestCase):
         assert np.mean(np.abs(output_median - output_scipy)) < 1e-8
         
     
-   
+    def testCubicFilter(self):
+        from scipy.interpolate import CubicSpline
+        degrade, fs = sf.read('degraded_d.wav')
+        detect, _ = sf.read('detectionfile_d.wav')
+        index = np.arange(len(degrade))/fs
+        cs = CubicSpline(index[detect < 0.5], degrade[detect < 0.5])
+        output_scipy = cs(index)
+        
+        cubicSplineFilter('degraded_d.wav', 'detectionfile_d.wav', 20, 'output_cubic.wav')
+        output_cubic, fs = sf.read('output_cubic.wav')
+        
+        assert np.mean(np.abs(output_cubic - output_scipy)) < 1e-8
+        
 
 
 

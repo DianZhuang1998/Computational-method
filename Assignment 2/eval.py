@@ -1,7 +1,8 @@
-#$$
+#%%
 import numpy as np
 import soundfile as sf
 import unittest
+from scipy.io import wavfile
 from func_filter import *
 
 
@@ -21,6 +22,11 @@ mse_cubic = np.mean((clean - output_cubic)**2)
 print('MSE of median filter {:e}'.format(mse_median))
 print('MSE of cubic spline filter {:e}'.format(mse_cubic))
 
+t, degraded = wavfile.read("degraded_d.wav")
+t, detection = wavfile.read("detectionfile_d.wav")
+t, output_median = wavfile.read("output_median.wav")
+t, output_cubic = wavfile.read("output_cubic.wav")
+
 
 #%% parameter for MSE
 LENGTH = np.arange(5, 31, 2)
@@ -32,6 +38,21 @@ for i in range(len(LENGTH)):
     MSEs[i] = np.mean((clean - output_median)**2)
 
 
+plt.figure(1)
+plt.rcParams["figure.figsize"] = [7.50, 3.50]
+plt.rcParams["figure.autolayout"] = True
+plt.subplot(4,1,1)
+plt.plot(degraded[0:])
+plt.subplot(4,1,2)
+plt.plot(detection[0:])
+plt.subplot(4,1,3)
+plt.plot(output_median[0:])
+plt.subplot(4,1,4)
+plt.plot(output_cubic[0:])
+plt.ylabel("Amplitude")
+plt.xlabel("Time")
+
+
 
 import matplotlib.pyplot as plt
 plt.figure()
@@ -40,4 +61,5 @@ plt.xlabel('Filter length')
 plt.ylabel('MSE')
 plt.grid('on')
 plt.show()
+
 
