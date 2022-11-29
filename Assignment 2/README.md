@@ -18,7 +18,6 @@ cubic spline is a piecewise cubic function that interpolates a set of data point
 - scipy==1.9.3
 - soundfile==0.11.0
 - tqdm==4.64.1
-- wavfile==4.5.0
 
 
 ## Files
@@ -67,3 +66,4 @@ After listening to the two restored files, we notice Both have some more Pronoun
 ## Credits
 
 This code was developed for purely academic purposes by DianZhuang1998 as part of Assignment the EEP55C22 Computational method.
+https://github.com/DianZhuang1998/Computational-method
