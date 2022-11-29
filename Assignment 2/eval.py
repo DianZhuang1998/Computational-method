@@ -1,4 +1,4 @@
-#%%
+#$$
 import numpy as np
 import soundfile as sf
 import unittest
@@ -23,8 +23,8 @@ print('MSE of cubic spline filter {:e}'.format(mse_cubic))
 
 
 #%% parameter for MSE
-LENGTH = np.arrange(5, 31, 2)
-MSE = np.zeros(len(LENGTH))
+LENGTH = np.arange(5, 31, 2)
+MSEs = np.zeros(len(LENGTH))
 for i in range(len(LENGTH)):
     medianFilter('degraded_d.wav', 'detectionfile_d.wav', LENGTH[i], 'output_median.wav')
     clean, fs = sf.read('clean_d.wav')
@@ -39,4 +39,5 @@ plt.plot(LENGTH, MSEs, '-*')
 plt.xlabel('Filter length')
 plt.ylabel('MSE')
 plt.grid('on')
-plt.show() 
+plt.show()
+

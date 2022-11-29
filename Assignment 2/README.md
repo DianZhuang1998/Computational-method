@@ -4,9 +4,9 @@ Use median filter and cubic spline filter to detect clicks and restore in audio.
 
 ## High-level Description of the project
 This assignment builds on Assignment I. We assume that we have successfully detected the clicks and we are applying different interpolation methods to restore the audio, such as
-- median filter
+- median filter:
 The median filter is a non-linear digital filtering technique, often used to remove noise from an image or signal.
-- cubic splines filter
+- cubic splines filter:
 cubic spline is a piecewise cubic function that interpolates a set of data points and guarantees smoothness at the data points. 
 
 
@@ -37,15 +37,15 @@ cubicSplineFilter('degraded_d.wav', 'detectionfile_d.wav', 20, 'output_cubic.wav
 ## Methodlogy and Results
 There are three files are included and the explanation of each of them can be seen at 'Files', the unittesting included in the test.py file.
 - Median Filter
-Check the input: check the filter length is ODD and the degrade wav and detection wav have same length.
-Build the filter: select 0.5 as the middle value to determine whether variable i is clicks.
-Save the result and play the audio.
+- Check the input: check the filter length is ODD and the degrade wav and detection wav have same length.
+-  Build the filter: select 0.5 as the middle value to determine whether variable i is clicks.
+- Save the result and play the audio.
 
 - Cubic Spline Filter
-Check the input: check the degrade wav and detection wav have same length. because we are using the number of knots so do not need to check the ODD number this time.
-Build the filter: use for loop and while loop realize the comparative judgment of index size and number of knots in order to build the CubicSpline(x,y) and turn variable i into the output.
-Save the result and play the audio.
-Class CubicSpline: usage included three.
+- Check the input: check the degrade wav and detection wav have same length. because we are using the number of knots so do not need to check the ODD number this time.
+- Build the filter: use for loop and while loop realize the comparative judgment of index size and number of knots in order to build the CubicSpline(x,y) and turn variable i into the output.
+- Save the result and play the audio.
+- Class CubicSpline: usage included three.
 
 **Results**
 
@@ -55,12 +55,13 @@ Class CubicSpline: usage included three.
 
 The restored waveform <output_median.wav> with the optimal filter length is given below:
 
-
+<img src="MedianFilter.png" width="350">
 
 2. Using the cubic splines, we observe ....
 
 The restored waveform <output_cubic.wav> with the optimal filter length is given below:
 
+<img src="MedianFilter.png" width="350">
 
 3. Comparing the two different interpolation methods, we notice that method cubic spine achieves a lower MSE. The runtime 2 tests is 0.79s. 
 
