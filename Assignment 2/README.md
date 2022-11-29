@@ -1,5 +1,5 @@
 # Audio Restoration Assignment II
-Use median filter and cubic spline filter to detect clicks and restore in audio.
+Use Median filter and Cubic Spline filter to detect clicks and restore them in audio.
 
 
 ## High-level Description of the project
@@ -18,6 +18,7 @@ cubic spline is a piecewise cubic function that interpolates a set of data point
 - scipy==1.9.3
 - soundfile==0.11.0
 - tqdm==4.64.1
+- wavfile==4.5.0
 
 
 ## Files
@@ -35,16 +36,16 @@ cubicSplineFilter('degraded_d.wav', 'detectionfile_d.wav', 20, 'output_cubic.wav
 ```
 
 ## Methodlogy and Results
-There are three files are included and the explanation of each of them can be seen at 'Files', the unittesting included in the test.py file.
-- Median Filter
+There are three files are included and the explanations of each of them can be seen at 'Files', the unittesting included in the test.py file.
+- Median Filter:
 - Check the input: check the filter length is ODD and the degrade wav and detection wav have same length.
--  Build the filter: select 0.5 as the middle value to determine whether variable i is clicks.
+- Build the filter: select 0.5 as the middle value to determine whether variable i is clicks.
 - Save the result and play the audio.
 
-- Cubic Spline Filter
+- Cubic Spline Filter:
 - Check the input: check the degrade wav and detection wav have same length. because we are using the number of knots so do not need to check the ODD number this time.
 - Build the filter: use for loop and while loop realize the comparative judgment of index size and number of knots in order to build the CubicSpline(x,y) and turn variable i into the output.
-- Save the result and play the audio.
+- Save: the result and play the audio.
 - Class CubicSpline: usage included three.
 
 **Results**
@@ -53,15 +54,9 @@ There are three files are included and the explanation of each of them can be se
 
 <img src="MedianFilter.png" width="350">
 
-The restored waveform <output_median.wav> with the optimal filter length is given below:
+2. Here is the Graph included 'degraded','detection','output_median','output_cubic' From top to bottomThe restored:
 
-<img src="MedianFilter.png" width="350">
-
-2. Using the cubic splines, we observe ....
-
-The restored waveform <output_cubic.wav> with the optimal filter length is given below:
-
-<img src="MedianFilter.png" width="350">
+<img src="Time_Amplitude.png" width="350">
 
 3. Comparing the two different interpolation methods, we notice that method cubic spine achieves a lower MSE. The runtime 2 tests is 0.79s. 
 
@@ -71,4 +66,4 @@ After listening to the two restored files, we notice Both have some more Pronoun
 ---
 ## Credits
 
-This code was developed for purely academic purposes by DianZhuang1998 as part of the module ..... 
+This code was developed for purely academic purposes by DianZhuang1998 as part of Assignment the EEP55C22 Computational method.
