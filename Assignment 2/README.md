@@ -54,7 +54,7 @@ There are three files are included and the explanations of each of them can be s
 
 <img src="MedianFilter.png" width="350">
 
-2. Here is the Graph included 'degraded','detection','output_median','output_cubic' From top to bottomThe restored:
+2. Here is the Graph included 'degraded','detection','output_median','output_cubic' From top to bottom:
 
 <img src="Time_Amplitude.png" width="350">
 
